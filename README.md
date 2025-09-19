@@ -32,6 +32,10 @@ If you do not need to split the files, you need to modify the paths in the subse
 
 ## 📝Experiments
 
+### RQ1
+RQ1 presents the overall results. To obtain these results, we run RQ2 and RQ3 and aggregate their statistics.
+
+
 ### RQ2
 
 Configure the dataset and the required model names, and modify the input and output paths in all code files in the Q1 folder.
