@@ -1,6 +1,6 @@
 # Faithfulness of Reasoning Traces in LLM-based Code Vulnerability Detection
 
-Example code of our FSE paper (554). 
+Example code for our FSE 2026 paper #554.
 
 ## 🔰Installation
 
