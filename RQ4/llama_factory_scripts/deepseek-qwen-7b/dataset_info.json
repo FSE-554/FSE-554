@@ -1,0 +1,11 @@
+{
+    "security_analysis": {
+        "file_name": "data_base.json",
+        "formatting": "alpaca",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    }
+}
