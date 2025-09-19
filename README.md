@@ -1,5 +1,7 @@
 # Faithfulness of Reasoning Traces in LLM-based Code Vulnerability Detection
 
+Example code of our FSE paper (554). 
+
 ## 🔰Installation
 
 ```bash
@@ -30,7 +32,7 @@ If you do not need to split the files, you need to modify the paths in the subse
 
 ## 📝Experiments
 
-### RQ2: full-patch
+### RQ2
 
 Configure the dataset and the required model names, and modify the input and output paths in all code files in the Q1 folder.
 
@@ -44,7 +46,7 @@ Configure the dataset and the required model names, and modify the input and out
 7. python cul_full_patched.py --base_dir "your_base_directory_path" --models "model1" "model2" "model3"...
 ```
 
-### RQ3: N-patched
+### RQ3
 
 Configure the dataset and the required model names, and modify the input and output paths in all code files in the Q2 folder.
 
@@ -59,7 +61,7 @@ Configure the dataset and the required model names, and modify the input and out
 8. python your_script_name.py --base_dir "/path/to/base_dir" --models "model1" "model2"....
 ```
 
-### RQ4: Lora
+### RQ4
 
 Use LoRA to adjust the model. Thanks [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) for implementing an efficient tool to fine-tune LLMs.
 
