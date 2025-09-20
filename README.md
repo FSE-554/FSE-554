@@ -41,13 +41,13 @@ RQ1 presents the overall results. To obtain these results, we run RQ2 and RQ3 an
 Configure the dataset and the required model names, and modify the input and output paths in all code files in the Q1 folder.
 
 ```bash
-1. python run.py --combined_dataset "/path/to/data.json" --base_output_dir "/path/to/output"
-2. python get_code.py  --first_file "your_dataset_code.json" --results_root "your_out_put_dir" --combined_name "your_combined_name.json" --output_name "output.json"
-3. python divide.py --root "your_base_dir" --input-name "your_data_all_answer.json" --prefix "your_data_all_answer_" --chunk-size 1000
-4. python full_patched.py --api_key "your_api_key" --model_name "your_model" --base_url "https://your.api.url/" --input_file "your_input_file.json" --output_file "your_output_file.json"
-5. python get_full_patched_data.py --base_dir "your_base_dir" --input_filename "your_input_filename.json" --output_filename "your_out_put_filename.json"
-6. python run_full_patched.py --base_results_dir "/path/to/results" --input_basename "your_full_patched.json" --output_basename "your_output_basename.json" 
-7. python cul_full_patched.py --base_dir "your_base_directory_path" --models "model1" "model2" "model3"...
+python run.py --combined_dataset "/path/to/data.json" --base_output_dir "/path/to/output"
+python get_code.py  --first_file "your_dataset_code.json" --results_root "your_out_put_dir" --combined_name "your_combined_name.json" --output_name "output.json"
+python divide.py --root "your_base_dir" --input-name "your_data_all_answer.json" --prefix "your_data_all_answer_" --chunk-size 1000
+python full_patched.py --api_key "your_api_key" --model_name "your_model" --base_url "https://your.api.url/" --input_file "your_input_file.json" --output_file "your_output_file.json"
+python get_full_patched_data.py --base_dir "your_base_dir" --input_filename "your_input_filename.json" --output_filename "your_out_put_filename.json"
+python run_full_patched.py --base_results_dir "/path/to/results" --input_basename "your_full_patched.json" --output_basename "your_output_basename.json" 
+python cul_full_patched.py --base_dir "your_base_directory_path" --models "model1" "model2" "model3"...
 ```
 
 ### RQ3
@@ -55,14 +55,14 @@ Configure the dataset and the required model names, and modify the input and out
 Configure the dataset and the required model names, and modify the input and output paths in all code files in the Q2 folder.
 
 ```bash
-1. python run.py --combined_dataset "/path/to/data.json" --base_output_dir "/path/to/output"
-2. python get_code.py  --first_file "your_dataset_code.json" --results_root "your_out_put_dir" --combined_name "your_combined_name.json" --output_name "output.json"
-3. python divide.py --root "your_base_dir" --input-name "your_data_all_answer.json" --prefix "your_data_all_answer_" --chunk-size 1000
-4. python run_N_patched.py --base_results_dir /path/to/results --input_basename your_full_patched_file_name.json --output_basename your_output_filename.json
-5. python N_patched.py --base_url "your_base_url" --api_key "your_api_key" --model "your_model" --input_file "your_first_file_name.json" --output_file "your_output_filename.json"
-6. python get_N_patched_data.py --base_dir "/path/to/base_dir" --input_filename "your_N_patched_file_name.json" --output_filename "your_output_file_name.json"
-7. python del_N_patched.py --base_dir "/path/to/base_dir" --models model1 model2 --code_name "your_N_patched_code_{i}.json" --answer_name "your_N_patched_answer_{i}.json"
-8. python your_script_name.py --base_dir "/path/to/base_dir" --models "model1" "model2"....
+python run.py --combined_dataset "/path/to/data.json" --base_output_dir "/path/to/output"
+python get_code.py  --first_file "your_dataset_code.json" --results_root "your_out_put_dir" --combined_name "your_combined_name.json" --output_name "output.json"
+python divide.py --root "your_base_dir" --input-name "your_data_all_answer.json" --prefix "your_data_all_answer_" --chunk-size 1000
+python run_N_patched.py --base_results_dir /path/to/results --input_basename your_full_patched_file_name.json --output_basename your_output_filename.json
+python N_patched.py --base_url "your_base_url" --api_key "your_api_key" --model "your_model" --input_file "your_first_file_name.json" --output_file "your_output_filename.json"
+python get_N_patched_data.py --base_dir "/path/to/base_dir" --input_filename "your_N_patched_file_name.json" --output_filename "your_output_file_name.json"
+python del_N_patched.py --base_dir "/path/to/base_dir" --models model1 model2 --code_name "your_N_patched_code_{i}.json" --answer_name "your_N_patched_answer_{i}.json"
+python your_script_name.py --base_dir "/path/to/base_dir" --models "model1" "model2"....
 ```
 
 ### RQ4
