@@ -38,7 +38,7 @@ RQ1 presents the overall results. To obtain these results, we run RQ2 and RQ3 an
 
 ### RQ2
 
-Configure the dataset and the required model names, and modify the input and output paths in all code files in the Q1 folder.
+Configure the dataset and the required model names, and modify the input and output paths in all code files in the RQ2 folder.
 
 ```bash
 python run.py --combined_dataset "/path/to/data.json" --base_output_dir "/path/to/output"
@@ -52,7 +52,7 @@ python cul_full_patched.py --base_dir "your_base_directory_path" --models "model
 
 ### RQ3
 
-Configure the dataset and the required model names, and modify the input and output paths in all code files in the Q2 folder.
+Configure the dataset and the required model names, and modify the input and output paths in all code files in the RQ3 folder.
 
 ```bash
 python run.py --combined_dataset "/path/to/data.json" --base_output_dir "/path/to/output"
