@@ -44,7 +44,7 @@ Configure the dataset and the required model names, and modify the input and out
 python run.py --combined_dataset "/path/to/data.json" --base_output_dir "/path/to/output"
 python get_code.py  --first_file "your_dataset_code.json" --results_root "your_out_put_dir" --combined_name "your_combined_name.json" --output_name "output.json"
 python divide.py --root "your_base_dir" --input-name "your_data_all_answer.json" --prefix "your_data_all_answer_" --chunk-size 1000
-python full_patched.py --api_key "your_api_key" --model_name "your_model" --base_url "https://your.api.url/" --input_file "your_input_file.json" --output_file "your_output_file.json"
+python full_patch.py --api_key "your_api_key" --model_name "your_model" --base_url "https://your.api.url/" --input_file "your_input_file.json" --output_file "your_output_file.json"
 python get_full_patched_data.py --base_dir "your_base_dir" --input_filename "your_input_filename.json" --output_filename "your_out_put_filename.json"
 python run_full_patched.py --base_results_dir "/path/to/results" --input_basename "your_full_patched.json" --output_basename "your_output_basename.json" 
 python cul_full_patched.py --base_dir "your_base_directory_path" --models "model1" "model2" "model3"...
