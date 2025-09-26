@@ -30,12 +30,12 @@ def parse_final_answer(answer_text: str) -> str:
         return ""
     return lines[last_idx + 1].strip()
 
-def process_model_dir(model_dir: Path) -> Dict[str, float]:
+def process_model_dir(model_dir: Path, file_prefix: str) -> Dict[str, float]:
     num = 0
     a = 0
 
     for i in range(1, 11):
-        fname = f"your_full_patched_answer_{i}.json"
+        fname = f"{file_prefix}_{i}.json"  # 使用外置文件名前缀
         fpath = model_dir / fname
         if not fpath.exists():
             logger.warning(f"[{model_dir.name}] Missing file: {fname}, skip.")
@@ -65,6 +65,7 @@ def main():
     parser = argparse.ArgumentParser(description="Process insecure model data")
     parser.add_argument('--base_dir', type=str, required=True, help='Base directory path')
     parser.add_argument('--models', nargs='*', help='List of model names, leave empty to auto-read')
+    parser.add_argument('--file_prefix', type=str, required=True, help='File name prefix for JSON files')  # 新增文件名参数
 
     args = parser.parse_args()
 
@@ -87,7 +88,7 @@ def main():
 
     print("Model\tInsecure (a/num)\tPercent")
     for md in model_dirs:
-        stats = process_model_dir(md)
+        stats = process_model_dir(md, args.file_prefix)  # 传递 file_prefix
         num = int(stats["num"])
         a = int(stats["a"])
         pct = stats["pct"]
