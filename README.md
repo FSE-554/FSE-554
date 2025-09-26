@@ -62,7 +62,7 @@ python run_N_patched.py --base_results_dir /path/to/results --input_basename you
 python N_patched.py --base_url "your_base_url" --api_key "your_api_key" --model "your_model" --input_file "your_first_file_name.json" --output_file "your_output_filename.json"
 python get_N_patched_data.py --base_dir "/path/to/base_dir" --input_filename "your_N_patched_file_name.json" --output_filename "your_output_file_name.json"
 python del_N_patched.py --base_dir "/path/to/base_dir" --models model1 model2 --code_name "your_N_patched_code_{i}.json" --answer_name "your_N_patched_answer_{i}.json"
-python your_script_name.py --base_dir "/path/to/base_dir" --models "model1" "model2"....
+8. python cul_N_patched.py --base_dir "/path/to/base_dir" --models "model1" "model2".... --answer_name_template "your_N_patch_answer.json"
 ```
 
 ### RQ4
