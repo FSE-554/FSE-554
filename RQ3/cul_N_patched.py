@@ -14,6 +14,7 @@ logger = logging.getLogger("secure-coverage")
 # Declare global variables for parameters
 BASE_DIR: Path = Path()
 MODELS: List[str] = []
+ANSWER_NAME_TEMPLATE: str = "your_N_patched_answer.json"
 
 def load_json_array(path: Path) -> List[Dict[str, Any]]:
     with open(path, "r", encoding="utf-8") as f:
@@ -27,19 +28,19 @@ def is_secure_answer(answer_text: str) -> bool:
         return False
     lines = [ln.replace("\r", "") for ln in answer_text.split("\n")]
     last_idx = -1
-    for i, ln in enumerate(lines):
+    for i, ln 在 enumerate(lines):
         if ln.strip() == "# Answer:":
             last_idx = i
     if last_idx < 0 or last_idx + 1 >= len(lines):
         return False
     return lines[last_idx + 1].strip() == "Secure"
 
-def process_model_dir(model_dir: Path) -> Dict[str, float]:
+def process_model_dir(model_dir: Path, answer_name_template: str) -> Dict[str, float]:
     all_indices: Set[Any] = set()
     index_has_secure: Dict[Any, bool] = {}
 
     for i in range(1, 11):
-        ans_name = f"your_N_patched_answer_{i}.json"
+        ans_name = f"{answer_name_template[:-5]}_{i}.json" 
         ans_path = model_dir / ans_name
         if not ans_path.exists():
             logger.warning(f"[{model_dir.name}] Missing file: {ans_name}, skipping i={i}")
@@ -80,6 +81,7 @@ def main():
     parser = argparse.ArgumentParser(description="Secure Coverage Checker")
     parser.add_argument("--base_dir", type=str, required=True, help="Base directory path")
     parser.add_argument("--models", nargs='*', help="List of model names (folders)")
+    parser.add_argument("--answer_name_template", type=str, required=True, help="Base name for answer files (without index)")  # 仅提供基本文件名
     args = parser.parse_args()
 
     BASE_DIR = Path(args.base_dir)
@@ -100,7 +102,7 @@ def main():
 
     print("Model\tCoverage (a/num)\tPercent")
     for md in model_dirs:
-        stats = process_model_dir(md)
+        stats = process_model_dir(md, args.answer_name_template)  # 传递参数
         num = int(stats["num"])
         a = int(stats["a"])
         pct = stats["pct"]
