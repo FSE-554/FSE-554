@@ -58,9 +58,9 @@ Configure the dataset and the required model names, and modify the input and out
 python run.py --combined_dataset "/path/to/data.json" --base_output_dir "/path/to/output"
 python get_code.py  --first_file "your_dataset_code.json" --results_root "your_out_put_dir" --combined_name "your_combined_name.json" --output_name "output.json"
 python divide.py --root "your_base_dir" --input-name "your_data_all_answer.json" --prefix "your_data_all_answer_" --chunk-size 1000
-python run_N_patched.py --base_results_dir /path/to/results --input_basename your_full_patched_file_name.json --output_basename your_output_filename.json
 python N_patched.py --base_url "your_base_url" --api_key "your_api_key" --model "your_model" --input_file "your_first_file_name.json" --output_file "your_output_filename.json"
 python get_N_patched_data.py --base_dir "/path/to/base_dir" --input_filename "your_N_patched_file_name.json" --output_filename "your_output_file_name.json"
+python run_N_patched.py --base_results_dir /path/to/results --input_basename your_full_patched_file_name.json --output_basename your_output_filename.json
 python del_N_patched.py --base_dir "/path/to/base_dir" --models model1 model2 --code_name "your_N_patched_code_{i}.json" --answer_name "your_N_patched_answer_{i}.json"
 8. python cul_N_patched.py --base_dir "/path/to/base_dir" --models "model1" "model2".... --answer_name_template "your_N_patch_answer.json"
 ```
