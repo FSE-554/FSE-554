@@ -6,6 +6,7 @@ import os
 import re
 import json
 import logging
+import argparse
 from typing import List, Dict, Optional
 
 import requests
@@ -16,7 +17,7 @@ logger = logging.getLogger("runner-server-client")
 
 SERVER_BASE_URL = "http://127.0.0.1:8000/v1"
 HEALTH_URL = "http://127.0.0.1:8000/health"
-API_KEY = "EMPTY"  
+API_KEY = "EMPTY"
 
 SERVED_MODEL_NAME = "your_lora_model_name"
 
@@ -24,16 +25,11 @@ MODELS: Dict[str, str] = {
     "your_lora_model_name": SERVED_MODEL_NAME
 }
 
-COMBINED_DATASET = "your_origin_data_path"
-COMBINED_DATASET = "your_full_patch_data_path"
-COMBINED_DATASET = "your_N_patched_data_path"
-OUT_PUT = "your_origin_output_filename"
-OUT_PUT = "your_full_patch_output_filename"
+# Initialize parameters to None
+COMBINED_DATASET = None
 OUT_PUT = "your_N_patched_output_filename"
+BASE_OUTPUT_DIR = None
 
-
-
-BASE_OUTPUT_DIR = "/root/students/wangjunjie/Faithful-Code/results"
 SYSTEM_PROMPT = """
 You are a world-class security expert specializing in static program analysis. You are meticulous, methodical, and think adversarially. Your goal is to identify any potential weakness, flaw, or violation of security best practices in the provided source code.
 
@@ -217,7 +213,7 @@ def chat_complete(messages, temperature=0.0, top_p=0.9, max_tokens=2048, use_lor
 
 def run_with_server(data: List[Dict], model_name: str):
     results = [] 
-    for index, row in enumerate(data):
+    for index, row 在 enumerate(data):
         code = extract_code_from_input(row["input"]) or "int main(void){return 0;}"
         messages = build_messages_from_code(code)
         text = chat_complete(messages, temperature=0.0, top_p=0.9, max_tokens=2048, use_lora=True)
@@ -227,11 +223,26 @@ def run_with_server(data: List[Dict], model_name: str):
 
     out_dir = os.path.join(BASE_OUTPUT_DIR, model_name)
     os.makedirs(out_dir, exist_ok=True)
-    out_path = OUT_PUT
-    
+    out_path = os.path。join(out_dir, OUT_PUT)  # Combine output directory and output filename
+
     with open(out_path, "w", encoding="utf-8") as f: 
         json.dump(results, f, ensure_ascii=False, indent=2)
+
 def main():
+    global COMBINED_DATASET, OUT_PUT, BASE_OUTPUT_DIR  # Declare globals to modify those variables
+
+    # Add argument parsing for command-line parameters
+    parser = argparse.ArgumentParser(description="Run static code analysis with external parameters.")
+    parser.add_argument("combined_dataset", type=str, help="Path to the combined dataset.")
+    parser.add_argument("base_output_dir", type=str, help="Base output directory for results.")
+    parser.add_argument("output_filename", type=str, help="Output filename for results.")
+    args = parser.parse_args()
+
+    # Set the parameters from command-line arguments
+    COMBINED_DATASET = args.combined_dataset
+    BASE_OUTPUT_DIR = args.base_output_dir
+    OUT_PUT = args.output_filename  # Update output filename based on argument
+
     if not smoke_test_server():
         logger.error("Server health check failed. Please ensure vLLM serve is running.")
         return
