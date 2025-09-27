@@ -27,7 +27,7 @@ MODELS: Dict[str, str] = {
 
 # Initialize parameters to None
 COMBINED_DATASET = None
-OUT_PUT = "your_N_patched_output_filename"
+OUT_PUT = None
 BASE_OUTPUT_DIR = None
 
 SYSTEM_PROMPT = """
