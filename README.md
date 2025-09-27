@@ -108,5 +108,5 @@ Terminal window 2:
 Repeat the script order of RQ2 and RQ3. In `run_lora.py`, adjust the corresponding model names and paths. Change the instances where `run.py` is executed in RQ2 and RQ3 to run `run_lora.py` instead.
 
 ```bash
-python your_script.py "path/to/your_dataset.json" "/path/to/base_output_dir" "output_filename.json"
+python run_lora.py "path/to/your_dataset.json" "/path/to/base_output_dir" "output_filename.json"
 ```
